@@ -1,31 +1,31 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="" version="2.18.1">
+<qgis projectname="" version="2.18.2">
   <title></title>
   <autotransaction active="0"/>
   <evaluateDefaultValues active="0"/>
-  <layer-tree-group expanded="1" checked="Qt::PartiallyChecked" name="">
+  <layer-tree-group expanded="1" checked="Qt::Unchecked" name="">
     <customproperties/>
-    <layer-tree-group expanded="1" checked="Qt::PartiallyChecked" name="Output">
+    <layer-tree-group expanded="1" checked="Qt::Unchecked" name="Output">
       <customproperties/>
-      <layer-tree-layer expanded="1" checked="Qt::Checked" id="hub_lines20170426023537306" name="hub_lines">
+      <layer-tree-layer expanded="1" checked="Qt::Unchecked" id="hub_lines20170426023537306" name="hub_lines">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer expanded="1" checked="Qt::Checked" id="earthquake_join20170426020457706" name="earthquake_join">
+      <layer-tree-layer expanded="1" checked="Qt::Unchecked" id="earthquake_join20170426020457706" name="earthquake_join">
         <customproperties/>
       </layer-tree-layer>
       <layer-tree-layer expanded="1" checked="Qt::Unchecked" id="Distance_matrix20170426014415312" name="Distance matrix">
         <customproperties/>
       </layer-tree-layer>
     </layer-tree-group>
-    <layer-tree-group expanded="1" checked="Qt::Checked" name="Input">
+    <layer-tree-group expanded="1" checked="Qt::Unchecked" name="Input">
       <customproperties/>
-      <layer-tree-layer expanded="1" checked="Qt::Checked" id="signif20170426020558691" name="signif">
+      <layer-tree-layer expanded="1" checked="Qt::Unchecked" id="signif20170426020558691" name="signif">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer expanded="1" checked="Qt::Checked" id="ne_10m_populated_places_simple20170426020512935" name="ne_10m_populated_places_simple">
+      <layer-tree-layer expanded="1" checked="Qt::Unchecked" id="ne_10m_populated_places_simple20170426020512935" name="ne_10m_populated_places_simple">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer expanded="1" checked="Qt::Checked" id="TM_WORLD_BORDERS_0_320170426015320741" name="TM_WORLD_BORDERS-0.3">
+      <layer-tree-layer expanded="1" checked="Qt::Unchecked" id="TM_WORLD_BORDERS_0_320170426015320741" name="TM_WORLD_BORDERS-0.3">
         <customproperties/>
       </layer-tree-layer>
     </layer-tree-group>
@@ -67,15 +67,15 @@
     </custom-order>
   </layer-tree-canvas>
   <legend updateDrawingOrder="true">
-    <legendgroup open="true" checked="Qt::PartiallyChecked" name="Output">
-      <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="hub_lines" showFeatureCount="0">
+    <legendgroup open="true" checked="Qt::Unchecked" name="Output">
+      <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="hub_lines" showFeatureCount="0">
         <filegroup open="true" hidden="false">
-          <legendlayerfile isInOverview="0" layerid="hub_lines20170426023537306" visible="1"/>
+          <legendlayerfile isInOverview="0" layerid="hub_lines20170426023537306" visible="0"/>
         </filegroup>
       </legendlayer>
-      <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="earthquake_join" showFeatureCount="0">
+      <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="earthquake_join" showFeatureCount="0">
         <filegroup open="true" hidden="false">
-          <legendlayerfile isInOverview="0" layerid="earthquake_join20170426020457706" visible="1"/>
+          <legendlayerfile isInOverview="0" layerid="earthquake_join20170426020457706" visible="0"/>
         </filegroup>
       </legendlayer>
       <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="Distance matrix" showFeatureCount="0">
@@ -84,20 +84,20 @@
         </filegroup>
       </legendlayer>
     </legendgroup>
-    <legendgroup open="true" checked="Qt::Checked" name="Input">
-      <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="signif" showFeatureCount="0">
+    <legendgroup open="true" checked="Qt::Unchecked" name="Input">
+      <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="signif" showFeatureCount="0">
         <filegroup open="true" hidden="false">
-          <legendlayerfile isInOverview="0" layerid="signif20170426020558691" visible="1"/>
+          <legendlayerfile isInOverview="0" layerid="signif20170426020558691" visible="0"/>
         </filegroup>
       </legendlayer>
-      <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="ne_10m_populated_places_simple" showFeatureCount="0">
+      <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="ne_10m_populated_places_simple" showFeatureCount="0">
         <filegroup open="true" hidden="false">
-          <legendlayerfile isInOverview="0" layerid="ne_10m_populated_places_simple20170426020512935" visible="1"/>
+          <legendlayerfile isInOverview="0" layerid="ne_10m_populated_places_simple20170426020512935" visible="0"/>
         </filegroup>
       </legendlayer>
-      <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="TM_WORLD_BORDERS-0.3" showFeatureCount="0">
+      <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="TM_WORLD_BORDERS-0.3" showFeatureCount="0">
         <filegroup open="true" hidden="false">
-          <legendlayerfile isInOverview="0" layerid="TM_WORLD_BORDERS_0_320170426015320741" visible="1"/>
+          <legendlayerfile isInOverview="0" layerid="TM_WORLD_BORDERS_0_320170426015320741" visible="0"/>
         </filegroup>
       </legendlayer>
     </legendgroup>
@@ -2624,14 +2624,14 @@ def my_form_open(dialog, layer, feature):
       <LayerSnappingList type="QStringList">
         <value>TM_WORLD_BORDERS_0_320170426015320741</value>
         <value>earthquake_join20170426020457706</value>
+        <value>hub_lines20170426023537306</value>
         <value>ne_10m_populated_places_simple20170426020512935</value>
         <value>signif20170426020558691</value>
-        <value>hub_lines20170426021231511</value>
       </LayerSnappingList>
       <LayerSnappingEnabledList type="QStringList">
         <value>enabled</value>
         <value>enabled</value>
-        <value>enabled</value>
+        <value>disabled</value>
         <value>enabled</value>
         <value>enabled</value>
       </LayerSnappingEnabledList>
@@ -2640,7 +2640,7 @@ def my_form_open(dialog, layer, feature):
       <LayerSnappingToleranceUnitList type="QStringList">
         <value>1</value>
         <value>1</value>
-        <value>1</value>
+        <value>2</value>
         <value>1</value>
         <value>1</value>
       </LayerSnappingToleranceUnitList>
@@ -2656,7 +2656,7 @@ def my_form_open(dialog, layer, feature):
       <LayerSnappingToleranceList type="QStringList">
         <value>10.000000</value>
         <value>10.000000</value>
-        <value>10.000000</value>
+        <value>0.000000</value>
         <value>10.000000</value>
         <value>10.000000</value>
       </LayerSnappingToleranceList>

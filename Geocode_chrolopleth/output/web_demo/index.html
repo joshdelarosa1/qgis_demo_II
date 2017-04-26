@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>QGIS2leaf webmap</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<link rel="stylesheet" type="text/css" href="css/own_style.css">
+		<link rel="stylesheet" href="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.css" />	
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="js/leaflet-hash.js"></script>
+		<script src="js/Autolinker.min.js"></script>
+		<script src="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js"></script>
+	</head>
+	<body>
+		<div id="map"></div>
+		<input id="slide" type="range" min="0" max="1" step="0.1" value="1" onchange="updateOpacity(this.value)">
+		<script src="data/exp_NYC100schools.js"></script>
+		<script src="data/exp_NYCCountyjoin.js"></script>
+		<script>
+		var map = L.map('map', {
+			zoomControl:true, maxZoom:19
+		}).fitBounds([[40.4856381637,-74.3373740488],[40.9260265123,-73.6182292455]]);
+		var hash = new L.Hash(map);
+		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
+		var feature_group = new L.featureGroup([]);
+		var raster_group = new L.LayerGroup([]);
+		var basemap_0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
+			attribution: additional_attrib + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+		});	
+		basemap_0.addTo(map);	
+		var layerOrder=new Array();
+		function pop_NYCCountyjoin(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">OBJECTID</th><td>' + Autolinker.link(String(feature.properties['OBJECTID'])) + '</td></tr><tr><th scope="row">BoroCode</th><td>' + Autolinker.link(String(feature.properties['BoroCode'])) + '</td></tr><tr><th scope="row">BoroName</th><td>' + Autolinker.link(String(feature.properties['BoroName'])) + '</td></tr><tr><th scope="row">Shape__Are</th><td>' + Autolinker.link(String(feature.properties['Shape__Are'])) + '</td></tr><tr><th scope="row">Shape__Len</th><td>' + Autolinker.link(String(feature.properties['Shape__Len'])) + '</td></tr><tr><th scope="row">count</th><td>' + Autolinker.link(String(feature.properties['count'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleNYCCountyjoin(feature) {
+			if (feature.properties.count >= 5.0 && feature.properties.count <= 12.8) {
+				return {
+					color: '#f9f9f9',
+					weight: '1.3',
+					fillColor: '#fff5f0',
+					opacity: '1.0',
+					fillOpacity: '1.0',
+				}
+			}
+			if (feature.properties.count >= 12.8 && feature.properties.count <= 20.6) {
+				return {
+					color: '#f9f9f9',
+					weight: '1.3',
+					fillColor: '#fdbea5',
+					opacity: '1.0',
+					fillOpacity: '1.0',
+				}
+			}
+			if (feature.properties.count >= 20.6 && feature.properties.count <= 28.4) {
+				return {
+					color: '#f9f9f9',
+					weight: '1.3',
+					fillColor: '#fc7050',
+					opacity: '1.0',
+					fillOpacity: '1.0',
+				}
+			}
+			if (feature.properties.count >= 28.4 && feature.properties.count <= 36.2) {
+				return {
+					color: '#f9f9f9',
+					weight: '1.3',
+					fillColor: '#d42020',
+					opacity: '1.0',
+					fillOpacity: '1.0',
+				}
+			}
+			if (feature.properties.count >= 36.2 && feature.properties.count <= 44.0) {
+				return {
+					color: '#f9f9f9',
+					weight: '1.3',
+					fillColor: '#67000d',
+					opacity: '1.0',
+					fillOpacity: '1.0',
+				}
+			}
+		}
+		var exp_NYCCountyjoinJSON = new L.geoJson(exp_NYCCountyjoin,{
+			onEachFeature: pop_NYCCountyjoin,
+			style: doStyleNYCCountyjoin
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_NYCCountyjoinJSON);
+		function pop_NYC100schools(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">BORO</th><td>' + Autolinker.link(String(feature.properties['BORO'])) + '</td></tr><tr><th scope="row">USEDEC</th><td>' + Autolinker.link(String(feature.properties['USEDEC'])) + '</td></tr><tr><th scope="row">ADDRESS</th><td>' + Autolinker.link(String(feature.properties['ADDRESS'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">state</th><td>' + Autolinker.link(String(feature.properties['state'])) + '</td></tr><tr><th scope="row">addrtype</th><td>' + Autolinker.link(String(feature.properties['addrtype'])) + '</td></tr><tr><th scope="row">addrlocat</th><td>' + Autolinker.link(String(feature.properties['addrlocat'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		var exp_NYC100schoolsJSON = new L.geoJson(exp_NYC100schools,{
+			onEachFeature: pop_NYC100schools,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 4.0,
+					fillColor: '#2d56be',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_NYC100schoolsJSON);
+
+		feature_group.addTo(map);
+		var title = new L.Control();
+		title.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		title.update = function () {
+			this._div.innerHTML = '<h2>NYC Demo QGIS</h2>Schools in Boro Demo'
+		};
+		title.addTo(map);
+		var osmGeocoder = new L.Control.OSMGeocoder({
+            collapsed: false,
+            position: 'topright',
+            text: 'Find!',
+		});
+		osmGeocoder.addTo(map);
+		var legend = L.control({position: 'bottomright'});
+		legend.onAdd = function (map) {
+			var div = L.DomUtil.create('div', 'info legend');
+			div.innerHTML = "<h3>Legend</h3><table></table>";
+    		return div;
+		};
+		legend.addTo(map);
+	var baseMaps = {
+		'OSM Standard': basemap_0
+	};
+		L.control.layers(baseMaps,{"NYC100schools": exp_NYC100schoolsJSON,"NYCCountyjoin": exp_NYCCountyjoinJSON},{collapsed:false}).addTo(map);
+		function updateOpacity(value) {
+	}
+		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+	</script>
+</body>
+</html>
