@@ -560,10 +560,12 @@ def my_form_open(dialog, layer, feature):
         </spatialrefsys>
       </srs>
       <provider encoding="System">ogr</provider>
-      <previewExpression></previewExpression>
+      <previewExpression>COALESCE( "I_D", '&lt;NULL>' )</previewExpression>
       <vectorjoins/>
       <layerDependencies/>
-      <expressionfields/>
+      <expressionfields>
+        <field typeName="integer" precision="0" expression=" &quot;Distance_1&quot; * 69.172 " length="10" type="2" comment="" name="Dec2Miles"/>
+      </expressionfields>
       <defaults>
         <default field="I_D" expression=""/>
         <default field="FLAG_TSUNA" expression=""/>
@@ -615,6 +617,7 @@ def my_form_open(dialog, layer, feature):
         <default field="Distance m" expression=""/>
         <default field="Distance_1" expression=""/>
         <default field="miles" expression=""/>
+        <default field="Dec2Miles" expression=""/>
       </defaults>
       <map-layer-style-manager current="">
         <map-layer-style name=""/>
@@ -770,6 +773,9 @@ def my_form_open(dialog, layer, feature):
         <edittype widgetv2type="TextEdit" name="miles">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
+        <edittype widgetv2type="TextEdit" name="Dec2Miles">
+          <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
+        </edittype>
       </edittypes>
       <renderer-v2 forceraster="0" symbollevels="0" type="singleSymbol" enableorderby="0">
         <symbols>
@@ -830,7 +836,7 @@ def my_form_open(dialog, layer, feature):
         <property key="labeling/fieldName" value=""/>
         <property key="labeling/fitInPolygonOnly" value="false"/>
         <property key="labeling/fontCapitals" value="0"/>
-        <property key="labeling/fontFamily" value="MS Shell Dlg 2"/>
+        <property key="labeling/fontFamily" value=".SF NS Text"/>
         <property key="labeling/fontItalic" value="false"/>
         <property key="labeling/fontLetterSpacing" value="0"/>
         <property key="labeling/fontLimitPixelSize" value="false"/>
@@ -857,7 +863,7 @@ def my_form_open(dialog, layer, feature):
         <property key="labeling/minFeatureSize" value="0"/>
         <property key="labeling/multilineAlign" value="3"/>
         <property key="labeling/multilineHeight" value="1"/>
-        <property key="labeling/namedStyle" value="Normal"/>
+        <property key="labeling/namedStyle" value=""/>
         <property key="labeling/obstacle" value="true"/>
         <property key="labeling/obstacleFactor" value="1"/>
         <property key="labeling/obstacleType" value="0"/>
@@ -1049,6 +1055,7 @@ def my_form_open(dialog, layer, feature):
         <alias field="Distance m" index="47" name=""/>
         <alias field="Distance_1" index="48" name=""/>
         <alias field="miles" index="49" name=""/>
+        <alias field="Dec2Miles" index="50" name=""/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
@@ -1106,6 +1113,7 @@ def my_form_open(dialog, layer, feature):
           <column width="-1" hidden="0" type="field" name="Distance_1"/>
           <column width="-1" hidden="0" type="field" name="miles"/>
           <column width="-1" hidden="1" type="actions"/>
+          <column width="-1" hidden="0" type="field" name="Dec2Miles"/>
         </columns>
       </attributetableconfig>
       <editform>.</editform>
