@@ -608,7 +608,7 @@ def my_form_open(dialog, layer, feature):
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
       </edittypes>
-      <annotationform></annotationform>
+      <annotationform>.</annotationform>
       <aliases>
         <alias field="BORO" index="0" name=""/>
         <alias field="USEDEC" index="1" name=""/>
@@ -622,10 +622,10 @@ def my_form_open(dialog, layer, feature):
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns/>
       </attributetableconfig>
-      <editform></editform>
+      <editform>.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>.</editforminitfilepath>
       <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
@@ -636,6 +636,12 @@ def my_form_open(dialog, layer, feature):
       </conditionalstyles>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>-74.25559287904690109</xmin>
+        <ymin>40.49612360054000249</ymin>
+        <xmax>-73.70001041527359575</xmax>
+        <ymax>40.91554107539499796</ymax>
+      </extent>
       <id>NYC_County_join20170426113601348</id>
       <datasource>/vsizip/./output/NYC_County_join.zip</datasource>
       <keywordList>
@@ -1119,8 +1125,8 @@ def my_form_open(dialog, layer, feature):
       <Measuretool type="QString">None</Measuretool>
       <Baselayer type="QStringList"/>
       <Addlayerslist type="QString">None</Addlayerslist>
-      <MatchprojectCRS type="bool">false</MatchprojectCRS>
       <Highlightonhover type="bool">false</Highlightonhover>
+      <MatchprojectCRS type="bool">false</MatchprojectCRS>
       <Addaddresssearch type="bool">false</Addaddresssearch>
       <Minzoomlevel type="QString">1</Minzoomlevel>
       <Geolocateuser type="bool">false</Geolocateuser>
